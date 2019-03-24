@@ -28,7 +28,7 @@ public class ServerController {
     * @date        2019/3/24 15:22
     */
     @RequestMapping("/addService")
-    private int addService(Service service){
+    public int addService(Service service){
         int i = serverService.addService(service);
         return i;
     }
@@ -42,7 +42,7 @@ public class ServerController {
      * @date        2019/3/24 14:45
      */
     @RequestMapping("/findServerMultiple")
-    private List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
+    public List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
         List<Service> serverMultiple = serverService.findServerMultiple(svr_cust_name, svr_title, svr_type, svr_status, begindate, enddate);
         return serverMultiple;
     }
@@ -55,7 +55,7 @@ public class ServerController {
      * @date        2019/3/24 11:30
      */
     @RequestMapping("/deleteService/{svr_id}")
-    private int deleteService(@PathVariable("svr_id") Integer svr_id){
+    public int deleteService(@PathVariable("svr_id") Integer svr_id){
         int i = serverService.deleteService(svr_id);
         return i;
     }
@@ -68,7 +68,7 @@ public class ServerController {
      * @date        2019/3/24 11:54
      */
     @RequestMapping("/updateAllocation")
-    private int updateAllocation(Service service){
+    public int updateAllocation(Service service){
         int i = serverService.updateAllocation(service);
         return i;
     }
@@ -81,7 +81,7 @@ public class ServerController {
      * @date        2019/3/24 14:06
      */
     @RequestMapping("/updateDispose")
-    private int updateDispose(Service service){
+    public int updateDispose(Service service){
         int i = serverService.updateDispose(service);
         return i;
     }
@@ -94,7 +94,7 @@ public class ServerController {
      * @date        2019/3/24 14:13
      */
     @RequestMapping("/updateResult")
-    private int updateResult(Service service){
+    public int updateResult(Service service){
         int i = serverService.updateResult(service);
         return i;
     }
