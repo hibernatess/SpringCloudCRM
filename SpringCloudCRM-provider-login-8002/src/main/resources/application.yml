@@ -77,7 +77,7 @@ eureka:
         instance-id: SpringCloudCRM-login8002
         prefer-ip-address: true     #访问路径可以显示IP地址
 info:
-  app.name: ywj-SpringCloudCRM-login
+  app.name: ywj-9-login
   company.name: www.ywj.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
