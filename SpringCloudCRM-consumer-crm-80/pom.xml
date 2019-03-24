@@ -13,6 +13,12 @@
     <description>微服务消费者</description>
 
     <dependencies>
+        <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
+        <dependency>
+            <groupId>com.ywj</groupId>
+            <artifactId>SpringCloudCRM-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- Ribbon相关 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ywj.springcloud.mapper.UserMapper">
+    <resultMap id="user" type="com.ywj.springcloud.entities.User">
+        <id property="usr_id" column="usr_id"></id>
+        <result property="usr_name" column="usr_name"></result>
+        <result property="usr_password" column="usr_password"></result>
+        <result property="usr_flag" column="usr_flag"></result>
+        <result property="usr_role_id" column="usr_role_id"></result>
+        <association property="role" javaType="com.ywj.springcloud.entities.Role">
+            <id property="role_id" column="role_id"></id>
+            <result property="role_name" column="role_name"></result>
+            <result property="role_flag" column="role_flag"></result>
+            <result property="role_desc" column="role_desc"></result>
+        </association>
+
+    </resultMap>
+
+
+    <select id="loadUserLogin" resultMap="user" resultType="com.ywj.springcloud.entities.User">
+    SELECT  u.usr_id,u.usr_name,u.usr_password,u.usr_flag,u.usr_role_id,r.role_id,r.role_name,r.role_flag,r.role_desc from sys_user u  INNER JOIN sys_role r on u.usr_role_id=r.role_id WHERE u.usr_flag=1 and r.role_flag=1 and u.usr_name=#{usr_name} and usr_password=#{usr_password}
+         </select>
+</mapper>
