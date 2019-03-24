@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringCloudCRM-api" />
         <module name="SpringCloudCRM-consumer-crm-80" />
         <module name="SpringCloudCRM-eureka-7001" />
         <module name="SpringCloudCRM-eureka-7002" />

@@ -17,6 +17,7 @@
         <module>SpringCloudCRM-provider-login-8002</module>
         <module>SpringCloudCRM-provider-server-8003</module>
         <module>SpringCloudCRM-consumer-crm-80</module>
+        <module>SpringCloudCRM-api</module>
     </modules>
 
     <properties>
