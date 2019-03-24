@@ -15,6 +15,7 @@
         <module>SpringCloudCRM-zuul-gateway-9527</module>
         <module>SpringCloudCRM-provider-change-8001</module>
         <module>SpringCloudCRM-provider-login-8002</module>
+        <module>SpringCloudCRM-provider-server-8003</module>
     </modules>
 
     <properties>

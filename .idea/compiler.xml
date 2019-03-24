@@ -11,11 +11,9 @@
         <module name="SpringCloudCRM-eureka-7003" />
         <module name="SpringCloudCRM-provider-change-8001" />
         <module name="SpringCloudCRM-provider-login-8002" />
+        <module name="SpringCloudCRM-provider-server-8003" />
         <module name="SpringCloudCRM-zuul-gateway-9527" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SpringCloudeureka7003" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
