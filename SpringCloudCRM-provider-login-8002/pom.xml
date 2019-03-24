@@ -12,6 +12,13 @@
     <artifactId>SpringCloudCRM-provider-login-8002</artifactId>
 
     <dependencies>
+
+        <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
+        <dependency>
+            <groupId>com.ywj</groupId>
+            <artifactId>SpringCloudCRM-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!-- actuator监控信息完善 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

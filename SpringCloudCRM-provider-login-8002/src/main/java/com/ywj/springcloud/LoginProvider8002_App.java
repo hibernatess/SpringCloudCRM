@@ -1,5 +1,6 @@
 package com.ywj.springcloud;
 
+import com.ywj.springcloud.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
