@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>添加服务</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+    <script src="layui/layui.js" type="text/javascript"></script>
+    <script src="jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="vue.js" type="text/javascript"></script>
+</head>
+<body>
+<form class="layui-form" id="cst2">
+    <table class="layui-table">
+        <tr>
+            <td>编号</td>
+            <td>
+                <input type="text" style="width: 346px;" placeholder="自动生产编号"
+                       lay-verify="required" class="layui-input" disabled="disabled"/>
+            </td>
+            <td>服务类型</td>
+            <td>
+                <select lay-verify="required" id="svr_type" name="svr_type">
+                    <option value="">请选择</option>
+                    <option v-for="item in listleve" :value="item.dict_item" >{{item.dict_value}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>概要</td>
+            <td colspan="3">
+                <input type="text" placeholder="请输入概要(必填项)"
+                       lay-verify="required" class="layui-input"
+                       id="svr_title" name="svr_title" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>客户</td>
+            <td>
+                <select lay-verify="required" id="svr_cust_no" name="svr_cust_no">
+                    <option value="">请选择</option>
+                    <option v-for="item in listcust" :value="item.cust_no" >{{item.cust_name}}</option>
+                </select>
+            </td>
+            <td>状态</td>
+            <td>新创建</td>
+        </tr>
+
+        <tr>
+            <td>服务请求</td>
+            <td colspan="3">
+             <textarea type="text" placeholder="请输入服务请求"
+                       class="layui-textarea" cols="80" rows="5"
+                       id="svr_request" name="svr_request"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>创建人</td>
+            <td>
+                <input type="hidden" id="svr_create_id" name="svr_create_id"/>
+                <input type="text" style="width: 346px;"
+                       lay-verify="required" class="layui-input"  id="svr_create_by" name="svr_create_by" disabled="disabled"/>
+            </td>
+            <td>创建时间</td>
+            <td>
+                <input type="text" style="width: 346px;" disabled="disabled"
+                       class="layui-input" id="svr_create_date" name="svr_create_date"/>
+            </td>
+        </tr>
+    </table>
+    <div align="center">
+        <button class="layui-btn"  id="demo1">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+</form>
+
+</body>
+</html>
