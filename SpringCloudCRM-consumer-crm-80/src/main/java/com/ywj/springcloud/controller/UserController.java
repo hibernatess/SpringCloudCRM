@@ -17,7 +17,6 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class UserController {
     private static  final String REST_URL_PREFIX="http://SPRINGCLOUDCRM-LOGIN";
-//private static  final String REST_URL_PREFIX="http://localhost:8002";
     @Autowired
     private RestTemplate restTemplate;
 
