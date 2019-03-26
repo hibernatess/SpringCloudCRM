@@ -22,4 +22,10 @@
     <select id="loadUserLogin" resultMap="user" resultType="com.ywj.springcloud.entities.User">
     SELECT  u.usr_id,u.usr_name,u.usr_password,u.usr_flag,u.usr_role_id,r.role_id,r.role_name,r.role_flag,r.role_desc from sys_user u  INNER JOIN sys_role r on u.usr_role_id=r.role_id WHERE u.usr_flag=1 and r.role_flag=1 and u.usr_name=#{usr_name} and usr_password=#{usr_password}
          </select>
+    <select id="loadRight" resultType="hashmap" >
+        select  rf.rf_role_id,y.right_code,y.right_text,y.right_url,y.right_parent_code from  sys_role_right rf inner JOIN sys_right y on y.right_code=rf.rf_right_code
+          where  rf.rf_role_id=#{param1}  and  y.right_parent_code=#{param2}
+    </select>
+
+
 </mapper>
