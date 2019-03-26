@@ -13,13 +13,14 @@ public class SqlReport {
     */
     public String findContribution(String odr_cust_name,String odr_date){
             StringBuffer sb=new StringBuffer();
-            sb.append("SELECT o.odr_id,o.odr_cust_name,o.odr_date,SUM(l.odd_price*l.odd_count) as price FROM orders o LEFT JOIN orders_line l ON o.odr_id=l.odd_order_id WHERE TRUE");
+            sb.append("SELECT o.odr_id,o.odr_cust_name,o.odr_date,SUM(l.odd_price*l.odd_count) as price FROM orders o LEFT JOIN orders_line l ON o.odr_id=l.odd_order_id WHERE TRUE ");
             if(!StringUtils.isEmpty(odr_cust_name)){
-                sb.append("AND o.odr_cust_name LIKE '%"+odr_cust_name+"%' ");
+                sb.append(" AND o.odr_cust_name LIKE '%"+odr_cust_name+"%' ");
             }
             if(!StringUtils.isEmpty(odr_date)){
-                sb.append("AND o.odr_date LIKE '%"+odr_date+"%' ");
+                sb.append(" AND o.odr_date LIKE '%"+odr_date+"%' ");
             }
+            sb.append(" GROUP BY o.odr_id");
             return sb.toString();
     }
 
@@ -38,9 +39,9 @@ public class SqlReport {
         if(StringUtils.isEmpty(typename)){
             typename="客户等级";
         }
-        sb.append("SELECT d.dict_item,d.dict_value,COUNT(c.cust_no) as sum FROM cst_customer c RIGHT JOIN bas_dict d ON c."+type+"=d.dict_item WHERE TRUE");
+        sb.append(" SELECT d.dict_item,d.dict_value,COUNT(c.cust_no) as sum FROM cst_customer c RIGHT JOIN bas_dict d ON c."+type+"=d.dict_item WHERE TRUE");
         sb.append(" AND d.dict_type='"+typename+"' ");
-        sb.append("GROUP BY d.dict_value");
+        sb.append(" GROUP BY d.dict_value,d.dict_item");
         return sb.toString();
     }
 
@@ -58,6 +59,7 @@ public class SqlReport {
        if(!StringUtils.isEmpty(svr_create_date)){
            sb.append(" AND s.svr_create_date LIKE '"+svr_create_date+"%' ");
        }
+       sb.append(" GROUP BY d.dict_item,d.dict_value ");
        return sb.toString();
     }
 

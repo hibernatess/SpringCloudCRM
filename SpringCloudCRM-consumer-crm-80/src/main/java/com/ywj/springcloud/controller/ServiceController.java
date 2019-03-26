@@ -28,16 +28,6 @@ public class ServiceController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private EurekaClient eurekaClient;
-
-    public String GetEurekaClient(){
-        //去eureka上找SpringCloudCRM-8003
-        InstanceInfo eureka = eurekaClient.getNextServerFromEureka("SpringCloudCRM-8003", false);
-        //把找到后把取地址
-        String homePageUrl = eureka.getHomePageUrl();
-        return homePageUrl;
-    }
 
 
     /**
@@ -51,7 +41,7 @@ public class ServiceController {
     @ResponseBody
     public int addService(Service service){
         //访问服务层，获取数据
-        Integer object = restTemplate.getForObject(GetEurekaClient() + "server/addService?" + service, Integer.class);
+        Integer object = restTemplate.getForObject("http://SPRINGCLOUDCRM-8003/server/addService?" + service, Integer.class);
         return object;
     }
 
@@ -69,7 +59,7 @@ public class ServiceController {
         PageBean pageBean=new PageBean();
         pageBean.setPageBean(request);
         StringBuffer sb=new StringBuffer();
-        sb.append("server/findServerMultiple?true");
+        sb.append("http://SPRINGCLOUDCRM-8003/server/findServerMultiple?true");
         if(!StringUtils.isEmpty(svr_cust_name)){
             sb.append("&svr_cust_name=" + svr_cust_name);
         }
@@ -88,7 +78,7 @@ public class ServiceController {
         if(!StringUtils.isEmpty(enddate)){
             sb.append("&enddate=" + enddate);
         }
-        List<Service>  list = restTemplate.getForObject(GetEurekaClient() + sb.toString(), List.class);
+        List<Service>  list = restTemplate.getForObject( sb.toString(), List.class);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
@@ -108,7 +98,7 @@ public class ServiceController {
     @RequestMapping("/deleteService/{svr_id}")
     @ResponseBody
     public int deleteService(@PathVariable("svr_id") Integer svr_id){
-        Integer i = restTemplate.getForObject(GetEurekaClient() + "server/deleteService/" + svr_id, Integer.class);
+        Integer i = restTemplate.getForObject("http://SPRINGCLOUDCRM-8003/server/deleteService/" + svr_id, Integer.class);
         return i;
     }
 
@@ -122,7 +112,7 @@ public class ServiceController {
     @RequestMapping("/updateAllocation")
     @ResponseBody
     public int updateAllocation(Service service){
-        Integer i = restTemplate.getForObject(GetEurekaClient() + "server/updateAllocation?" + service, Integer.class);
+        Integer i = restTemplate.getForObject( "http://SPRINGCLOUDCRM-8003/server/updateAllocation?" + service, Integer.class);
         return i;
     }
 
@@ -136,7 +126,7 @@ public class ServiceController {
     @RequestMapping("/updateDispose")
     @ResponseBody
     public int updateDispose(Service service){
-        Integer i = restTemplate.getForObject(GetEurekaClient() + "server/updateDispose?"+service, Integer.class);
+        Integer i = restTemplate.getForObject("http://SPRINGCLOUDCRM-8003/server/updateDispose?"+service, Integer.class);
         return i;
     }
 
@@ -150,7 +140,7 @@ public class ServiceController {
     @RequestMapping("/updateResult")
     @ResponseBody
     public int updateResult(Service service){
-        Integer i = restTemplate.getForObject(GetEurekaClient() + "/server/updateResult" + service, Integer.class);
+        Integer i = restTemplate.getForObject("http://SPRINGCLOUDCRM-8003//server/updateResult" + service, Integer.class);
         return i;
     }
 

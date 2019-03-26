@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>客户贡献</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
+    <script src="layui/layui.js" type="text/javascript"></script>
+    <script src="jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="vue.js" type="text/javascript"></script>
+    <script src="js/hhh/contribution.js" type="text/javascript"></script>
+</head>
+
+<body>
+<form class="layui-form" onsubmit="return false">
+    <table class="layui-table">
+        <tr>
+            <td>客户分析</td>
+            <td><input type="text" class="layui-input" name="odr_cust_name" id="odr_cust_name" placeholder="请输入客户名称" autocomplete="off"/></td>
+            <td>年份</td>
+            <td>
+                <input type="text" name="odr_date" id="odr_date" placeholder="时间" autocomplete="off" class="layui-input"/>
+            </td>
+            <td>
+                <button class="layui-btn" data-type="reload" id="btn">搜索</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<!--表格-->
+<table class="layui-hide" id="test" lay-filter="test"></table>
+</body>
+</html>
