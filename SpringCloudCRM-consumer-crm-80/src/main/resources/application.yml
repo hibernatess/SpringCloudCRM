@@ -1,9 +1,6 @@
 server:
   port: 80
 
-
-
-
 eureka:
   client:
      register-with-eureka: false
@@ -13,4 +10,9 @@ pagehelper: #pagehelper分页插件配置
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
-
+spring:
+    datasource:
+        driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+        url: jdbc:mysql://116.62.157.132:3306/springcrm?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC    # 数据库名称
+        username: root
+        password: zking216@
