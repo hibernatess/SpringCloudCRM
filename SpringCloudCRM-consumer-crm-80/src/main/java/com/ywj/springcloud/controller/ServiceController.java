@@ -1,5 +1,8 @@
 package com.ywj.springcloud.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.ywj.springcloud.entities.Service;
@@ -79,11 +82,13 @@ public class ServiceController {
             sb.append("&enddate=" + enddate);
         }
         List<Service>  list = restTemplate.getForObject( sb.toString(), List.class);
+        Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
+        PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
-        map.put("count",pageBean.getTotal());
-        map.put("data",list);
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
         return map;
     }
 

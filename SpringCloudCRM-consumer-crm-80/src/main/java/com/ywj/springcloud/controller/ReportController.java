@@ -1,5 +1,8 @@
 package com.ywj.springcloud.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.ywj.springcloud.util.PageBean;
@@ -43,12 +46,13 @@ public class ReportController {
             sb.append("&odr_date="+odr_date);
         }
         List<Map<String,Object>> list = restTemplate.getForObject(sb.toString(), List.class);
-        System.err.println(pageBean.getTotal());
+        Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
+        PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
-        map.put("count",pageBean.getTotal());
-        map.put("data",list);
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
         return map;
     }
 
@@ -73,11 +77,13 @@ public class ReportController {
             sb.append("&ty.tospename="+typename);
         }
         List<Map<String,Object>> list = restTemplate.getForObject( sb.toString(), List.class);
+        Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
+        PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
-        map.put("count",pageBean.getTotal());
-        map.put("data",list);
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
         return map;
     }
 
@@ -100,11 +106,13 @@ public class ReportController {
             sb.append("&svr_create_date="+svr_create_date);
         }
         List<Map<String,Object>> list = restTemplate.getForObject( sb.toString(), List.class);
+        Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
+        PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
-        map.put("count",pageBean.getTotal());
-        map.put("data",list);
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
         return map;
     }
 
@@ -129,11 +137,13 @@ public class ReportController {
             sb.append("&lst_cust_manager_name="+lst_cust_manager_name);
         }
         List<Map<String,Object>> list = restTemplate.getForObject( sb.toString(), List.class);
+        Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
+        PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();
         map.put("code",0);
         map.put("msg","");
-        map.put("count",pageBean.getTotal());
-        map.put("data",list);
+        map.put("count",pageInfo.getTotal());
+        map.put("data",pageInfo.getList());
         return map;
     }
 
