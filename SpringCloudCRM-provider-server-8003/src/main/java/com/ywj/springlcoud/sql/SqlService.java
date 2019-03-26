@@ -16,7 +16,7 @@ public class SqlService {
     * @exception
     * @date        2019/3/24 14:43
     */
-    public String findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate) throws ParseException {
+    public String findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate) throws Exception {
         StringBuffer sb=new StringBuffer();
         //获取系统当前时间
         Date d = new Date();

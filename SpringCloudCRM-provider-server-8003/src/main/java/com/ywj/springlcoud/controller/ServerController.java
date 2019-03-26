@@ -4,15 +4,13 @@ import com.ywj.springcloud.entities.Service;
 import com.ywj.springlcoud.service.ServerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/server")
 public class ServerController {
 
@@ -41,7 +39,7 @@ public class ServerController {
      * @exception
      * @date        2019/3/24 14:45
      */
-    @RequestMapping("/findServerMultiple")
+    @GetMapping("/findServerMultiple")
     public List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
         List<Service> serverMultiple = serverService.findServerMultiple(svr_cust_name, svr_title, svr_type, svr_status, begindate, enddate);
         return serverMultiple;
