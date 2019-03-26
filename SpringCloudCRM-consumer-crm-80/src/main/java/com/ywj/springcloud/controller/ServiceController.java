@@ -20,7 +20,6 @@ import java.util.List;
 * @UpdateDate:
 */
 @Controller
-@RequestMapping("/server")
 public class ServiceController {
 
     @Autowired
@@ -152,7 +151,7 @@ public class ServiceController {
     * @exception
     * @date        2019/3/26 9:50
     */
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public String get(){
         return "addServe";
     }

@@ -35,9 +35,5 @@ public class UserController {
         return false;
     }
 
-   @GetMapping("/")
-    public String loging(){
-        return  "login";
-    }
 
 }
