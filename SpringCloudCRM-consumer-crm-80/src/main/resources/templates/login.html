@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>CRM登录页面</title>
-    <link rel="stylesheet" th:href="@{layui/css/layui.css}"  media="all" />
-    <link rel="stylesheet" th:href="@{css/login.css}" media="all" />
+    <meta charset="utf-8"/>
+    <title>登录--后台管理</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="css/login.css" media="all" />
     <script type="text/javascript" src="jquery-3.3.1.js"></script>
 </head>
 <body>
+<div class="video_mask"></div>
+<div class="login">
+    <h1>管理员登录</h1>
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <input class="layui-input" name="username" placeholder="用户名" value="" lay-verify="required"  lay-verType="tips" type="text" autocomplete="off"/>
+        </div>
+        <div class="layui-form-item">
+            <input class="layui-input" name="password" placeholder="密码" value=""  lay-verify="required"   lay-verType="tips"  type="password" autocomplete="off"/>
+        </div>
+        <button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
+    </form>
+</div>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script>
+    layui.use(['form', 'layer'], function () {
+        var form = layui.form,
+            layer=layui.layer
+        $ = layui.jquery;
+        //登录按钮事件
+        form.on("submit(login)", function (data) {
+            $.getJSON("/consumer/login",{usr_name:data.field.username,usr_password:data.field.password},function(data){
+                if(data){
+                    layer.msg("登录成功",{
+                        time:600
+                    });
+                    parent.location.href ='index.html';
+                }
+            });
+            return false;
+        })
+    });
+
+</script>
 
 </body>
 </html>
