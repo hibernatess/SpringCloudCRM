@@ -2,15 +2,18 @@ package com.ywj.springcloud.controller;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
-import com.ywj.springcloud.config.ConfigBean;
 import com.ywj.springcloud.entities.Service;
+import com.ywj.springcloud.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * @Description:    SpringCloudCRM-provider-server-8003的消费端
@@ -62,11 +65,13 @@ public class ServiceController {
      */
     @RequestMapping("/findAll")
     @ResponseBody
-    public List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
+    public Map<String,Object> findServerMultiple(String svr_cust_name, String svr_title, String svr_type, String svr_status, String begindate, String enddate, HttpServletRequest request){
+        PageBean pageBean=new PageBean();
+        pageBean.setPageBean(request);
         StringBuffer sb=new StringBuffer();
-        sb.append("server/findServerMultiple");
+        sb.append("server/findServerMultiple?true");
         if(!StringUtils.isEmpty(svr_cust_name)){
-            sb.append("?svr_cust_name=" + svr_cust_name);
+            sb.append("&svr_cust_name=" + svr_cust_name);
         }
         if(!StringUtils.isEmpty(svr_title)){
             sb.append("&svr_title=" + svr_title);
@@ -84,7 +89,12 @@ public class ServiceController {
             sb.append("&enddate=" + enddate);
         }
         List<Service>  list = restTemplate.getForObject(GetEurekaClient() + sb.toString(), List.class);
-        return list;
+        Map<String,Object> map=new HashMap<>();
+        map.put("code",0);
+        map.put("msg","");
+        map.put("count",pageBean.getTotal());
+        map.put("data",list);
+        return map;
     }
 
 
