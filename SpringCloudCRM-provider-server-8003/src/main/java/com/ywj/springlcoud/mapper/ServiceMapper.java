@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 @Repository
@@ -31,7 +32,7 @@ public interface ServiceMapper {
     * @date        2019/3/24 14:45
     */
     @SelectProvider(type =SqlService.class,method = "findServerMultiple")
-    List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate);
+    List<Map<String,Object>> findServerMultiple(String svr_cust_name, String svr_title, String svr_type, String svr_status, String begindate, String enddate);
 
 
 

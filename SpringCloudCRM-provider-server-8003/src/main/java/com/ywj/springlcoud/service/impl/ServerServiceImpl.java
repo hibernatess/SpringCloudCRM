@@ -6,6 +6,7 @@ import com.ywj.springlcoud.service.ServerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 @org.springframework.stereotype.Service
 public class ServerServiceImpl implements ServerService {
@@ -34,7 +35,7 @@ public class ServerServiceImpl implements ServerService {
      * @date        2019/3/24 14:45
      */
     @Override
-    public List<Service> findServerMultiple(String svr_cust_name, String svr_title, String svr_type, String svr_status, String begindate, String enddate) {
+    public List<Map<String,Object>> findServerMultiple(String svr_cust_name, String svr_title, String svr_type, String svr_status, String begindate, String enddate) {
         return serviceMapper.findServerMultiple(svr_cust_name, svr_title, svr_type, svr_status, begindate, enddate);
     }
 

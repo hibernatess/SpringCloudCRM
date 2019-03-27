@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>客户服务</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
+    <script src="layui/layui.js" type="text/javascript"></script>
+    <script src="jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="vue.js" type="text/javascript"></script>
+    <script src="js/hhh/serve.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="layui-form">
+    <table class="layui-table">
+        <tr>
+            <td>年份</td>
+            <td>
+                <input type="text" class="layui-input" id="test2" placeholder="yyyy"/>
+            </td>
+            <td>
+                <button class="layui-btn" data-type="reload" id="btn">搜索</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--表格-->
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+</body>
+</html>

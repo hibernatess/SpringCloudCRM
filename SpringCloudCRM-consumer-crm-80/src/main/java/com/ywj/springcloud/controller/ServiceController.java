@@ -81,7 +81,7 @@ public class ServiceController {
         if(!StringUtils.isEmpty(enddate)){
             sb.append("&enddate=" + enddate);
         }
-        List<Service>  list = restTemplate.getForObject( sb.toString(), List.class);
+        List<Map<String,Object>>  list = restTemplate.getForObject( sb.toString(), List.class);
         Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
         PageInfo pageInfo=new PageInfo(list);
         Map<String,Object> map=new HashMap<>();

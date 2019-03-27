@@ -74,7 +74,7 @@ public class ReportController {
             sb.append("&type="+type);
         }
         if(!StringUtils.isEmpty(typename)){
-            sb.append("&ty.tospename="+typename);
+            sb.append("&typename="+typename);
         }
         List<Map<String,Object>> list = restTemplate.getForObject( sb.toString(), List.class);
         Page page=PageHelper.startPage(pageBean.getPage(),pageBean.getRows());
@@ -147,8 +147,52 @@ public class ReportController {
         return map;
     }
 
+    /**
+    * 跳转至客户贡献统计页面
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/27 9:34
+    */
     @RequestMapping("/contribution")
-    public String get(){
+    public String getcontribution(){
         return "contribution";
     }
+
+    /**
+    * 跳转至客户构成统计页面
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/27 9:35
+    */
+    @RequestMapping("/constitute")
+    public String getconstitute(){
+        return  "constitute";
+    }
+
+    /**
+    * 跳转至客户服务统计页面
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/27 9:42
+    */
+    @RequestMapping("/serve")
+    public String getserve(){
+        return  "serve";
+    }
+
+    /**
+    * 跳转至客户流失统计页面
+    * @author      hhh
+    * @return
+    * @exception
+    * @date        2019/3/27 10:05
+    */
+    @RequestMapping("/findLost")
+    public String getfindLost(){
+        return "findLost";
+    }
+
 }

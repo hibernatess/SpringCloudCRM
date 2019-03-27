@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>客户流失</title>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all" />
+    <script src="layui/layui.js" type="text/javascript"></script>
+    <script src="jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="vue.js" type="text/javascript"></script>
+    <script src="js/hhh/findLost.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="layui-form">
+    <table class="layui-table">
+        <tr>
+            <td>客户名称</td>
+            <td>
+                <input type="text" class="layui-input" name="lst_cust_name" id="lst_cust_name" placeholder="请输入客户名称" autocomplete="off"/>
+            </td>
+            <td>客户经理</td>
+            <td>
+                <input type="text" class="layui-input" name="lst_cust_manager_name" id="lst_cust_manager_name" placeholder="请输入客户经理名称" autocomplete="off"/>
+            </td>
+            <td>
+                <button class="layui-btn" data-type="reload" id="btn">搜索</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--表格-->
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+</body>
+</html>

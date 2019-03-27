@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.Map;
 
 
 @RestController
@@ -40,8 +40,8 @@ public class ServerController {
      * @date        2019/3/24 14:45
      */
     @GetMapping("/findServerMultiple")
-    public List<Service> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
-        List<Service> serverMultiple = serverService.findServerMultiple(svr_cust_name, svr_title, svr_type, svr_status, begindate, enddate);
+    public List<Map<String,Object>> findServerMultiple(String svr_cust_name,String svr_title,String svr_type,String svr_status,String begindate,String enddate){
+        List<Map<String,Object>> serverMultiple = serverService.findServerMultiple(svr_cust_name, svr_title, svr_type, svr_status, begindate, enddate);
         return serverMultiple;
     }
 

@@ -25,7 +25,8 @@ public class SqlService {
         //起始时间 如果没有传起始时间那么就从2017.01.01开始
         Date myDate2 = df.parse("2017年01月01日00时00分00秒");
         String date2 = df.format(myDate2);
-        sb.append("SELECT * FROM cst_service WHERE TRUE ");
+        sb.append("SELECT s.svr_id,d.dict_value,s.svr_title,s.svr_cust_no,svr_cust_name,s.svr_status,s.svr_request,s.svr_create_id,s.svr_create_by,s.svr_create_date,s.svr_due_id,s.svr_due_to,s.svr_due_date,s.svr_deal,s.svr_deal_id,s.svr_deal_by,s.svr_deal_date,s.svr_result,s.svr_satisfy ");
+        sb.append("FROM cst_service s LEFT  JOIN bas_dict d ON s.svr_type=d.dict_item WHERE TRUE AND d.dict_type='服务类型'");
         if(!StringUtils.isEmpty(svr_status)){
             sb.append(" AND svr_status='"+svr_status+"' ");
         }
