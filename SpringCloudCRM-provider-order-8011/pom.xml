@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>SpringCloudCRM-provider-customer-8009</artifactId>
+    <artifactId>SpringCloudCRM-provider-order-8011</artifactId>
 
     <dependencies>
         <dependency>

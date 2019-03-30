@@ -6,10 +6,6 @@ public class SqlLinkman {
 
     /**
     * 同时根据多个查询条件来查询服务表  如果起始时间第一开始没有传值那么就使用默认时间
-    * @author      hhh
-    * @return
-    * @exception
-    * @date        2019/3/24 14:43
     */
     public String findLinkmanMultiple(String  lkm_cust_no) throws Exception {
         StringBuffer sb=new StringBuffer();

@@ -20,6 +20,11 @@
         <module>SpringCloudCRM-api</module>
         <module>SpringCloudCRM-provider-dict-8004</module>
         <module>SpringCloudCRM-provider-report-8005</module>
+        <module>SpringCloudCRM-provider-customer-8006</module>
+        <module>SpringCloudCRM-provider-activity-8007</module>
+        <module>SpringCloudCRM-provider-linkman-8008</module>
+        <module>SpringCloudCRM-provider-product-8010</module>
+        <module>SpringCloudCRM-provider-order-8011</module>
     </modules>
 
     <properties>
